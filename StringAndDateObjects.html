@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8"/>
+   <style>
+   
+   </style>
+   <title>Title</title> 
+</head>
+
+<body>
+   <h2>Working with String and Date Objects</h2>
+   
+   <input type = "text" id="inThings"> <input type="button" id="inButton" value="Add to Array"> <input type="button" id="sortThings" value="Sort"><br /><br  />
+   <input type="text" id="inString"> <input type="button" value="GO" id="stringButton"><br /><br />
+   <input type="button" id="dateStuff" value="Date Stuff" onclick="dateStuff()">
+       
+	<h4>Contents of the Array</h4>
+	<span id="things"></span>
+		 
+	<h4>STRING STUFF</h4>
+    <span id="stringOut"></span>
+	
+    <h4>DATE STUFF</h4>
+    <span id="dateOut"></span>
+	
+</body>
+   <script>
+      window.onload = function() {
+		  document.getElementById("inButton").onclick = addToArray;
+		  document.getElementById("sortThings").onclick = sortArray;
+		  document.getElementById("stringButton").onclick = stringStuff;
+		  //document.getElementById("dateStuff").onclick = dateStuff;
+	  }
+      function showArr( arr )
+	  {
+		 var arrStr = "";
+		 for (var i=0; i<arr.length; i++ ) {
+             arrStr += arr[i]+"<br />";
+		 }	
+         document.getElementById("things").innerHTML = arrStr;		 
+	  }
+	  function addToArray() {
+		  var inThings = document.getElementById("inThings").value;
+		  var ct = things.unshift(inThings);
+		  showArr(things);
+	  }
+	  function sortArray() {
+		   things.sort();
+		   showArr(things);
+	  }
+	  function stringStuff() {
+		  var inString = document.getElementById("inString").value;
+		  var upString = inString.toUpperCase();
+		  var lowerString = inString.toLowerCase();
+		  var fiveString = inString.substr(0,5);
+		  var numChar = inString.length;
+		  document.getElementById("stringOut").innerHTML = numChar + "<br />" +inString + "<br />" + upString + "<br />" + lowerString +  "<br />" + fiveString;
+	  }
+	  function dateStuff() {
+		  var d = new Date();
+		  var month = d.getMonth() + 1;
+		  var hour = d.getHours();
+		  document.getElementById("dateOut").innerHTML = "Month: " + month + " Hours: " + hour;
+	  }
+
+	  var things = [];
+	  
+   </script>
+</html>
